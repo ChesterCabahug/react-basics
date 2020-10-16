@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       cats: [],
       searchField: "",
+      title: "",
     };
   }
 
@@ -19,22 +20,22 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ searchField: e.target.value });
+    this.setState({ searchField: e.target.value, title: e.target.value });
   }
 
   render() {
-    const { cats, searchField } = this.state;
-    const filteredcats = cats.filter((cat) =>
-      cat.name.toLowerCase().includes(searchField.toLowerCase())
-    );
+    const { cats, searchField, title } = this.state;
+    // const filteredcats = cats.filter((cat) =>
+    //   cat.name.toLowerCase().includes(searchField.toLowerCase())
+    // );
     return (
       <div className="App">
-      <h1>Nekko Rolodex 🐈</h1>
+      <h1>{title}</h1>
         <SearchBox
           placeholder="search nekko"
           handleChange={this.handleChange}
         />
-        <CardList cats={filteredcats} />
+        <CardList cats={cats} />
       </div>
     );
   }
