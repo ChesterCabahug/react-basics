@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { CardList } from "./components/card-list/card-list.component";
-import { SearchBox } from "./components/search-box/search-box.component";
+import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
 
   handleChange = (e) => {
     this.setState({ searchField: e.target.value });
-  }
+  };
 
   render() {
     const { cats, searchField } = this.state;
@@ -29,7 +29,7 @@ class App extends Component {
     );
     return (
       <div className="App">
-      <h1>Cat Collector 🐈</h1>
+        <h1>Cat Collector 🐈</h1>
         <SearchBox
           placeholder="search nekko"
           handleChange={this.handleChange}
